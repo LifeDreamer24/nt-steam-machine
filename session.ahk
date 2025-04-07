@@ -11,7 +11,7 @@ GroupAdd("System", "ahk_exe taskmgr.exe")
 GroupAdd("System", "ahk_exe rustdesk.exe")
 GroupAdd("System", "ahk_exe AutoHotkey64.exe")
 
-Run('"C:\Program Files (x86)\Steam\Steam.exe" -steamos -gamepadui')
+Run('"C:\Program Files (x86)\Steam\Steam.exe" -steamdeck -gamepadui')
 SteamWin := "ahk_exe steamwebhelper.exe"
 WinWait(SteamWin)
 
@@ -69,7 +69,7 @@ IsSteamFullscreen() {
 StartBPM() {
     global BPM
     pid := WinGetPID("ahk_class Progman")
-    Run('"' A_WinDir '\system32\taskkill.exe" /F /PID ' pid)
+    Run('"' A_WinDir '\system32\taskkill.exe" /F /PID /C' pid)
     BPM := true
 }
 
