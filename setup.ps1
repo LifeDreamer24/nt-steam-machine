@@ -77,10 +77,6 @@ Set-ItemProperty `
 
 ### Set up lockscreen ###
 Write-Host "Setting up Lock Screen..."
-Set-ItemProperty `
-    -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" `
-    -Name "LockScreenImage" `
-    -Value $wallpaperPath
 
 New-Item `
     -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion" `
@@ -101,11 +97,6 @@ Set-ItemProperty `
     -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP" `
     -Name "LockScreenImageUrl" `
     -Value $wallpaperPath
-
-Set-ItemProperty `
-    -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" `
-    -Name "NoChangingLockScreen" `
-    -Value 1
 
 Set-ItemProperty `
     -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" `
@@ -159,10 +150,4 @@ Set-ItemProperty `
     -Name "SubscribedContent-338389Enabled" `
     -Value 0
 
-Set-ItemProperty `
-    -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" `
-    -Name "ScoobeSystemSettingEnabled" `
-    -Value 0
-
-
-Write-Host "`nInstallation complete, please reboot"
+Restart-Computer
