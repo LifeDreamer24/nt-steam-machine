@@ -69,7 +69,7 @@ IsSteamFullscreen() {
 StartBPM() {
     global BPM
     pid := WinGetPID("ahk_class Progman")
-    Run('"' A_WinDir '\system32\taskkill.exe" /F /PID /C' pid)
+    Run('"' A_WinDir '\system32\taskkill.exe" /F /PID ' pid)
     BPM := true
 }
 
