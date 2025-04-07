@@ -1,6 +1,8 @@
 #Requires -RunAsAdministrator
 Set-Location -Path $PSScriptRoot
 
+### Remove msstore prompt ###
+winget.exe update --accept-source-agreements --accept-package-agreements
 
 ### Setup Steam ###
 Write-Host "Searching for Steam..."
@@ -53,7 +55,7 @@ while ($null -eq $ahk) {
 Write-Host "Setting up Theme..."
 $wallpaperPath = Join-Path -Path $env:USERPROFILE -ChildPath "Pictures\wallpaper.png"
 Copy-Item `
-    -Path ".\thirdparty\bazzite\system_files\desktop\kinoite\usr\share\wallpapers\ublue.png" `
+    -Path ".\deck.jpeg" `
     -Destination $wallpaperPath `
     -Force
 
